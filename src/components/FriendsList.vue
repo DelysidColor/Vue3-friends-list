@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import { intersection } from "@/utils/array";
+
 export default {
   computed: {
     sortedFriends() {
@@ -38,38 +40,26 @@ export default {
         friend,
         this.$store.state.users
       );
+      // console.log(commonFriendsCount);
       const brightness = commonFriendsCount / this.$store.state.users.length;
       const background = `rgba(123, 12, 12, ${brightness})`;
       return { background };
     },
     calculateCommonFriends(friend, users) {
-      const commonFriends = [];
+      let commonFriends = 0;
 
       users.forEach((user) => {
         if (user.id !== friend.id) {
-          let friendSet = new Set();
-          let userSet = new Set();
+          let friendSecond = [];
           if (friend.friends && Array.isArray(friend.friends)) {
-            friendSet = new Set(friend.friends.map((f) => f.id));
+            friendSecond = friend.friends.filter((f) => f.id !== user.id);
           }
-          if (user.friends && Array.isArray(user.friends)) {
-            userSet = new Set(user.friends.map((f) => f.id));
-          }
-
-          const intersection = [...friendSet].filter((friendId) =>
-            userSet.has(friendId)
-          );
-
-          if (intersection.length > 0) {
-            commonFriends.push({
-              userId: user.id,
-              commonFriends: intersection.length,
-            });
-          }
+          console.log(friendSecond);
+          commonFriends = intersection(user.friends, friendSecond);
         }
       });
-
-      return commonFriends.length;
+      console.log(commonFriends);
+      return commonFriends;
     },
   },
 };

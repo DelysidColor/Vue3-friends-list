@@ -5,8 +5,8 @@
       <button class="btn" @click="setFriends">Построить</button>
     </router-link>
     <ul class="users-cards">
-      <li v-for="user in $store.state.users" :key="user.id" class="user-card">
-        <img style="margin-right: 5px" :src="user.photo" alt="Фото друга" />
+      <li v-for="user in getUsers" :key="user.id" class="user-card">
+        <img style="margin-right: 5px" :src="user.picture" alt="Фото друга" />
         {{ user.name }}
       </li>
     </ul>
@@ -18,6 +18,11 @@ export default {
   methods: {
     setFriends() {
       this.$store.commit("setFriends");
+    },
+  },
+  computed: {
+    getUsers() {
+      return this.$store.state.users;
     },
   },
 };

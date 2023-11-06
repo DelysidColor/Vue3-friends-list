@@ -1,62 +1,72 @@
 import { createStore } from "vuex";
+import { hasFriend } from "@/utils/array";
 
 export default createStore({
   state: {
+    posts: [
+      {
+        header: "post1",
+        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+      },
+      {
+        header: "post2",
+        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+      },
+      {
+        header: "post3",
+        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+      },
+    ],
     friends: [],
     users: [
       {
         id: 0,
-        name: "Arto Saari",
+        picture: "http://placehold.it/32x32",
+        age: 24,
+        name: "Stuart Griffith",
         gender: "male",
-        age: 42,
         posts: [
           {
-            header: "post11",
+            header: "post1",
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
           {
-            header: "post22",
+            header: "post2",
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
           {
-            header: "post33",
+            header: "post3",
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
         ],
-        friendCount: 10,
         friends: [
           {
-            id: 2,
-            name: "Tom Penny",
-            gender: "male",
-            age: 45,
-            friendCount: 20,
+            id: 1,
+            picture: "http://placehold.it/32x32",
+            age: 29,
+            name: "Trudy Short",
+            gender: "female",
+            posts: [
+              {
+                header: "post1",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post2",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post3",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+            ],
             friends: [
               {
                 id: 0,
-                name: "Arto Saari",
+                picture: "http://placehold.it/32x32",
+                age: 24,
+                name: "Stuart Griffith",
                 gender: "male",
-                age: 42,
-                posts: [
-                  {
-                    header: "post11",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                  {
-                    header: "post22",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                  {
-                    header: "post33",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                ],
-              },
-              {
-                id: 1,
-                name: "Marl Appleyard",
-                gender: "male",
-                age: 39,
                 posts: [
                   {
                     header: "post1",
@@ -71,8 +81,39 @@ export default createStore({
                     body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
                   },
                 ],
+                friends: [],
               },
             ],
+          },
+        ],
+      },
+      {
+        id: 1,
+        picture: "http://placehold.it/32x32",
+        age: 29,
+        name: "Trudy Short",
+        gender: "female",
+        posts: [
+          {
+            header: "post1",
+            body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+          },
+          {
+            header: "post2",
+            body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+          },
+          {
+            header: "post3",
+            body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+          },
+        ],
+        friends: [
+          {
+            id: 0,
+            picture: "http://placehold.it/32x32",
+            age: 24,
+            name: "Stuart Griffith",
+            gender: "male",
             posts: [
               {
                 header: "post1",
@@ -85,6 +126,53 @@ export default createStore({
               {
                 header: "post3",
                 body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+            ],
+            friends: [
+              {
+                id: 1,
+                picture: "http://placehold.it/32x32",
+                age: 29,
+                name: "Trudy Short",
+                gender: "female",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+                friends: [
+                  {
+                    id: 0,
+                    picture: "http://placehold.it/32x32",
+                    age: 24,
+                    name: "Stuart Griffith",
+                    gender: "male",
+                    posts: [
+                      {
+                        header: "post1",
+                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                      },
+                      {
+                        header: "post2",
+                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                      },
+                      {
+                        header: "post3",
+                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                      },
+                    ],
+                    friends: [],
+                  },
+                ],
               },
             ],
           },
@@ -92,141 +180,10 @@ export default createStore({
       },
       {
         id: 2,
-        name: "Tom Penny",
-        gender: "male",
-        age: 45,
-        friendCount: 20,
-        friends: [
-          {
-            id: 0,
-            name: "Arto Saari",
-            gender: "male",
-            age: 42,
-            posts: [
-              {
-                header: "post11",
-                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-              },
-              {
-                header: "post22",
-                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-              },
-              {
-                header: "post33",
-                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-              },
-            ],
-            friendCount: 10,
-            friends: [
-              {
-                id: 2,
-                name: "Tom Penny",
-                gender: "male",
-                age: 45,
-                friendCount: 20,
-                friends: [
-                  {
-                    id: 0,
-                    name: "Arto Saari",
-                    gender: "male",
-                    age: 42,
-                    posts: [
-                      {
-                        header: "post11",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                      {
-                        header: "post22",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                      {
-                        header: "post33",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                    ],
-                  },
-                  {
-                    id: 1,
-                    name: "Marl Appleyard",
-                    gender: "male",
-                    age: 39,
-                    posts: [
-                      {
-                        header: "post1",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                      {
-                        header: "post2",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                      {
-                        header: "post3",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                    ],
-                  },
-                ],
-                posts: [
-                  {
-                    header: "post1",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                  {
-                    header: "post2",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                  {
-                    header: "post3",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            id: 1,
-            name: "Marl Appleyard",
-            gender: "male",
-            age: 39,
-            friendCount: 10,
-            friends: [
-              {
-                id: 2,
-                name: "Tom Penny",
-                gender: "male",
-                age: 45,
-                posts: [
-                  {
-                    header: "post1",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                  {
-                    header: "post2",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                  {
-                    header: "post3",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                ],
-              },
-            ],
-            posts: [
-              {
-                header: "post1",
-                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-              },
-              {
-                header: "post2",
-                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-              },
-              {
-                header: "post3",
-                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-              },
-            ],
-          },
-        ],
+        picture: "http://placehold.it/32x32",
+        age: 34,
+        name: "Florine Ball",
+        gender: "female",
         posts: [
           {
             header: "post1",
@@ -241,167 +198,14 @@ export default createStore({
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
         ],
+        friends: [],
       },
       {
-        id: 1,
-        name: "Marl Appleyard",
+        id: 3,
+        picture: "http://placehold.it/32x32",
+        age: 38,
+        name: "Anthony Stafford",
         gender: "male",
-        age: 39,
-        friendCount: 10,
-        friends: [
-          {
-            id: 2,
-            name: "Tom Penny",
-            gender: "male",
-            age: 45,
-            friendCount: 20,
-            friends: [
-              {
-                id: 0,
-                name: "Arto Saari",
-                gender: "male",
-                age: 42,
-                posts: [
-                  {
-                    header: "post11",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                  {
-                    header: "post22",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                  {
-                    header: "post33",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                ],
-                friendCount: 10,
-                friends: [
-                  {
-                    id: 2,
-                    name: "Tom Penny",
-                    gender: "male",
-                    age: 45,
-                    friendCount: 20,
-                    friends: [
-                      {
-                        id: 0,
-                        name: "Arto Saari",
-                        gender: "male",
-                        age: 42,
-                        posts: [
-                          {
-                            header: "post11",
-                            body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                          },
-                          {
-                            header: "post22",
-                            body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                          },
-                          {
-                            header: "post33",
-                            body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                          },
-                        ],
-                      },
-                      {
-                        id: 1,
-                        name: "Marl Appleyard",
-                        gender: "male",
-                        age: 39,
-                        posts: [
-                          {
-                            header: "post1",
-                            body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                          },
-                          {
-                            header: "post2",
-                            body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                          },
-                          {
-                            header: "post3",
-                            body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                          },
-                        ],
-                      },
-                    ],
-                    posts: [
-                      {
-                        header: "post1",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                      {
-                        header: "post2",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                      {
-                        header: "post3",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                    ],
-                  },
-                ],
-              },
-              {
-                id: 1,
-                name: "Marl Appleyard",
-                gender: "male",
-                age: 39,
-                friendCount: 10,
-                friends: [
-                  {
-                    id: 2,
-                    name: "Tom Penny",
-                    gender: "male",
-                    age: 45,
-                    posts: [
-                      {
-                        header: "post1",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                      {
-                        header: "post2",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                      {
-                        header: "post3",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                    ],
-                  },
-                ],
-                posts: [
-                  {
-                    header: "post1",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                  {
-                    header: "post2",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                  {
-                    header: "post3",
-                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                  },
-                ],
-              },
-            ],
-            posts: [
-              {
-                header: "post1",
-                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-              },
-              {
-                header: "post2",
-                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-              },
-              {
-                header: "post3",
-                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-              },
-            ],
-          },
-        ],
         posts: [
           {
             header: "post1",
@@ -416,27 +220,28 @@ export default createStore({
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
         ],
+        friends: [],
       },
       {
-        id: "3",
-        name: "Aron Homoky",
+        id: 4,
+        picture: "http://placehold.it/32x32",
+        age: 38,
+        name: "Beck Jennings",
         gender: "male",
-        age: 40,
         posts: [
           {
-            header: "post11",
+            header: "post1",
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
           {
-            header: "post22",
+            header: "post2",
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
           {
-            header: "post33",
+            header: "post3",
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
         ],
-        friendCount: 0,
         friends: [],
       },
     ],
@@ -446,18 +251,19 @@ export default createStore({
       return state.friends.sort((a, b) => (a.name > b.name ? 1 : -1));
     },
     getFriends(state) {
-      const uniqueFriendsSet = new Set();
+      const uniqueFriendsSet = [];
 
       state.users.forEach((user) => {
-        user.friends.forEach((friend) => {
-          uniqueFriendsSet.add(JSON.stringify(friend));
-        });
+        if (user.friends.length > 0) {
+          user.friends.forEach((friend) => {
+            if (!hasFriend(uniqueFriendsSet, friend.id)) {
+              uniqueFriendsSet.push(friend);
+            }
+          });
+        }
       });
-      const uniqueFriends = Array.from(uniqueFriendsSet).map((friendStr) =>
-        JSON.parse(friendStr)
-      );
 
-      return uniqueFriends;
+      return uniqueFriendsSet;
     },
     getUserById: (state) => (id) => {
       return state.users.find((user) => user.id == id);
