@@ -1,15 +1,19 @@
 <template>
   <div class="user-profile">
     <div class="user-details">
-      <img :src="user.photo" alt="Фото пользователя" />
-      <h3>{{ user.name }}</h3>
-      <p>Пол: {{ user.gender }}</p>
-      <p>Возраст: {{ user.age }}</p>
-      <p>В друзьях у:
+      <div class="user-image-div">
+        <img class="user-img" :src="user.picture" alt="Фото пользователя" />
+      </div>
+      <p class="user-name">{{ user.name }}</p>
+      <p>Age: {{ user.age }}</p>
+      <div>
+        Added as a friend by:
         <ul>
-          <li v-for="friend in inFriends" :key="friend.id">{{ friend.name }}</li>
+          <li v-for="friend in inFriends" :key="friend.id">
+            {{ friend.name }}
+          </li>
         </ul>
-      </p>
+      </div>
     </div>
     <div class="user-posts">
       <div class="post" v-for="post in user.posts" :key="post.header">
@@ -33,29 +37,55 @@ export default {
       return this.$route.params.id;
     },
   },
+  methods: {
+    addedAsFriend() {
+      this.inFriends = this.$store.state.users.filter((friend) =>
+        friend.friends.some((f) => f.id == this.userId)
+      );
+    },
+    setUserById() {
+      this.user = this.$store.getters.getUserById(this.userId);
+    },
+  },
   created() {
-    this.user = this.$store.getters.getUserById(this.userId);
-    this.inFriends = this.$store.state.users.filter((friend) =>
-      friend.friends.some((f) => f.id == this.userId)
-    );
+    this.setUserById();
+    this.addedAsFriend();
   },
 };
 </script>
 
 <style scoped>
+.user-img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.user-image-div {
+  max-width: 200px;
+}
+
+.user-name {
+  color: black !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+}
+
 .user-profile {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 20px;
 }
 
 .user-details {
-  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
+  height: fit-content;
+  text-align: center;
   background-color: #f5f5f5;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-	text-align: center;
 }
 
 .user-details h3 {
@@ -81,7 +111,7 @@ export default {
 }
 
 .user-posts {
-  width: 60%;
+  width: 40%;
   padding: 20px;
 }
 

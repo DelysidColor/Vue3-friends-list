@@ -1,12 +1,11 @@
 <template>
   <div class="source-list">
-    <input type="text" class="source-input" placeholder="Имя" />
     <router-link to="/friends">
-      <button class="btn" @click="setFriends">Построить</button>
+      <button class="btn" @click="setFriends">All friends</button>
     </router-link>
     <ul class="users-cards">
-      <li v-for="user in getUsers" :key="user.id" class="user-card">
-        <img style="margin-right: 5px" :src="user.picture" alt="Фото друга" />
+      <li v-for="user in users" :key="user.id" class="user-card">
+        <img class="user-image" :src="user.picture" alt="Фото друга" />
         {{ user.name }}
       </li>
     </ul>
@@ -21,7 +20,7 @@ export default {
     },
   },
   computed: {
-    getUsers() {
+    users() {
       return this.$store.state.users;
     },
   },
@@ -29,6 +28,11 @@ export default {
 </script>
 
 <style scoped>
+.user-image {
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+}
 .source-list {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -38,15 +42,6 @@ export default {
   align-items: center;
   justify-content: center;
   margin-top: 50px;
-}
-
-.source-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 10px;
 }
 
 .users-cards {

@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <nav class="nav">
-      <router-link class="nav-btn" to="/source">Исходный</router-link>
+      <router-link class="nav-btn" to="/source">All Users</router-link>
       <router-link
         v-if="$store.state.friends.length > 0"
         class="nav-btn"
-        to="/friends"
-        >Друзья</router-link
-      >
+        to="/friends">
+        All Friends
+      </router-link>
     </nav>
     <router-view />
   </div>
@@ -34,7 +34,7 @@ export default {};
   background-color: #007bff;
   color: #fff;
   border: none;
-  width: 150px;
+  width: 10vw;
   padding: 8px 30px;
   border-radius: 5px;
   cursor: pointer;

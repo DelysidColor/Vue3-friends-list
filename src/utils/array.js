@@ -7,15 +7,3 @@ export const hasFriend = (arr, id) => {
   });
   return has;
 };
-
-export const intersection = (arr1, arr2) => {
-  let count = 0;
-
-  arr1.forEach((item) => {
-    if (hasFriend(arr2, item.id)) {
-      count++;
-    }
-  });
-
-  return count;
-};

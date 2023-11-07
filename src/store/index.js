@@ -3,25 +3,11 @@ import { hasFriend } from "@/utils/array";
 
 export default createStore({
   state: {
-    posts: [
-      {
-        header: "post1",
-        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-      },
-      {
-        header: "post2",
-        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-      },
-      {
-        header: "post3",
-        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-      },
-    ],
     friends: [],
     users: [
       {
         id: 0,
-        picture: "http://placehold.it/32x32",
+        picture: "http://placehold.it/200x200",
         age: 24,
         name: "Stuart Griffith",
         gender: "male",
@@ -39,10 +25,11 @@ export default createStore({
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
         ],
+        friendsCount: 1,
         friends: [
           {
             id: 1,
-            picture: "http://placehold.it/32x32",
+            picture: "http://placehold.it/200x200",
             age: 29,
             name: "Trudy Short",
             gender: "female",
@@ -60,10 +47,32 @@ export default createStore({
                 body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
               },
             ],
+            friendsCount: 3,
             friends: [
               {
+                id: 2,
+                picture: "http://placehold.it/200x200",
+                age: 34,
+                name: "Florine Ball",
+                gender: "female",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+              {
                 id: 0,
-                picture: "http://placehold.it/32x32",
+                picture: "http://placehold.it/200x200",
                 age: 24,
                 name: "Stuart Griffith",
                 gender: "male",
@@ -81,7 +90,27 @@ export default createStore({
                     body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
                   },
                 ],
-                friends: [],
+              },
+              {
+                id: 3,
+                picture: "http://placehold.it/200x200",
+                age: 38,
+                name: "Anthony Stafford",
+                gender: "male",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
               },
             ],
           },
@@ -89,7 +118,7 @@ export default createStore({
       },
       {
         id: 1,
-        picture: "http://placehold.it/32x32",
+        picture: "http://placehold.it/200x200",
         age: 29,
         name: "Trudy Short",
         gender: "female",
@@ -107,10 +136,76 @@ export default createStore({
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
         ],
+        friendsCount: 3,
         friends: [
           {
+            id: 2,
+            picture: "http://placehold.it/200x200",
+            age: 34,
+            name: "Florine Ball",
+            gender: "female",
+            posts: [
+              {
+                header: "post1",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post2",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post3",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+            ],
+            friends: [
+              {
+                id: 1,
+                picture: "http://placehold.it/200x200",
+                age: 29,
+                name: "Trudy Short",
+                gender: "female",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+              {
+                id: 3,
+                picture: "http://placehold.it/200x200",
+                age: 38,
+                name: "Anthony Stafford",
+                gender: "male",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+            ],
+          },
+          {
             id: 0,
-            picture: "http://placehold.it/32x32",
+            picture: "http://placehold.it/200x200",
             age: 24,
             name: "Stuart Griffith",
             gender: "male",
@@ -131,7 +226,7 @@ export default createStore({
             friends: [
               {
                 id: 1,
-                picture: "http://placehold.it/32x32",
+                picture: "http://placehold.it/200x200",
                 age: 29,
                 name: "Trudy Short",
                 gender: "female",
@@ -149,28 +244,69 @@ export default createStore({
                     body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
                   },
                 ],
-                friends: [
+              },
+            ],
+          },
+          {
+            id: 3,
+            picture: "http://placehold.it/200x200",
+            age: 38,
+            name: "Anthony Stafford",
+            gender: "male",
+            posts: [
+              {
+                header: "post1",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post2",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post3",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+            ],
+            friends: [
+              {
+                id: 2,
+                picture: "http://placehold.it/200x200",
+                age: 34,
+                name: "Florine Ball",
+                gender: "female",
+                posts: [
                   {
-                    id: 0,
-                    picture: "http://placehold.it/32x32",
-                    age: 24,
-                    name: "Stuart Griffith",
-                    gender: "male",
-                    posts: [
-                      {
-                        header: "post1",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                      {
-                        header: "post2",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                      {
-                        header: "post3",
-                        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
-                      },
-                    ],
-                    friends: [],
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+              {
+                id: 1,
+                picture: "http://placehold.it/200x200",
+                age: 29,
+                name: "Trudy Short",
+                gender: "female",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
                   },
                 ],
               },
@@ -180,7 +316,7 @@ export default createStore({
       },
       {
         id: 2,
-        picture: "http://placehold.it/32x32",
+        picture: "http://placehold.it/200x200",
         age: 34,
         name: "Florine Ball",
         gender: "female",
@@ -198,11 +334,143 @@ export default createStore({
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
         ],
-        friends: [],
+        friendsCount: 2,
+        friends: [
+          {
+            id: 1,
+            picture: "http://placehold.it/200x200",
+            age: 29,
+            name: "Trudy Short",
+            gender: "female",
+            posts: [
+              {
+                header: "post1",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post2",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post3",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+            ],
+            friends: [
+              {
+                id: 2,
+                picture: "http://placehold.it/200x200",
+                age: 34,
+                name: "Florine Ball",
+                gender: "female",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+              {
+                id: 0,
+                picture: "http://placehold.it/200x200",
+                age: 24,
+                name: "Stuart Griffith",
+                gender: "male",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+              {
+                id: 3,
+                picture: "http://placehold.it/200x200",
+                age: 38,
+                name: "Anthony Stafford",
+                gender: "male",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            id: 3,
+            picture: "http://placehold.it/200x200",
+            age: 38,
+            name: "Anthony Stafford",
+            gender: "male",
+            posts: [
+              {
+                header: "post1",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post2",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post3",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+            ],
+            friends: [
+              {
+                id: 2,
+                picture: "http://placehold.it/200x200",
+                age: 34,
+                name: "Florine Ball",
+                gender: "female",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
       {
         id: 3,
-        picture: "http://placehold.it/32x32",
+        picture: "http://placehold.it/200x200",
         age: 38,
         name: "Anthony Stafford",
         gender: "male",
@@ -220,11 +488,164 @@ export default createStore({
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
         ],
-        friends: [],
+        friendsCount: 2,
+        friends: [
+          {
+            id: 2,
+            picture: "http://placehold.it/200x200",
+            age: 34,
+            name: "Florine Ball",
+            gender: "female",
+            posts: [
+              {
+                header: "post1",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post2",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post3",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+            ],
+            friends: [
+              {
+                id: 1,
+                picture: "http://placehold.it/200x200",
+                age: 29,
+                name: "Trudy Short",
+                gender: "female",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+              {
+                id: 3,
+                picture: "http://placehold.it/200x200",
+                age: 38,
+                name: "Anthony Stafford",
+                gender: "male",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            id: 1,
+            picture: "http://placehold.it/200x200",
+            age: 29,
+            name: "Trudy Short",
+            gender: "female",
+            posts: [
+              {
+                header: "post1",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post2",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post3",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+            ],
+            friends: [
+              {
+                id: 2,
+                picture: "http://placehold.it/200x200",
+                age: 34,
+                name: "Florine Ball",
+                gender: "female",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+              {
+                id: 0,
+                picture: "http://placehold.it/200x200",
+                age: 24,
+                name: "Stuart Griffith",
+                gender: "male",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+              {
+                id: 3,
+                picture: "http://placehold.it/200x200",
+                age: 38,
+                name: "Anthony Stafford",
+                gender: "male",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
       {
         id: 4,
-        picture: "http://placehold.it/32x32",
+        picture: "http://placehold.it/200x200",
         age: 38,
         name: "Beck Jennings",
         gender: "male",
@@ -242,7 +663,95 @@ export default createStore({
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
           },
         ],
-        friends: [],
+        friends: [
+          {
+            id: 1,
+            picture: "http://placehold.it/200x200",
+            age: 29,
+            name: "Trudy Short",
+            gender: "female",
+            posts: [
+              {
+                header: "post1",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post2",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+              {
+                header: "post3",
+                body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+              },
+            ],
+            friendsCount: 3,
+            friends: [
+              {
+                id: 2,
+                picture: "http://placehold.it/200x200",
+                age: 34,
+                name: "Florine Ball",
+                gender: "female",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+              {
+                id: 0,
+                picture: "http://placehold.it/200x200",
+                age: 24,
+                name: "Stuart Griffith",
+                gender: "male",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+              {
+                id: 3,
+                picture: "http://placehold.it/200x200",
+                age: 38,
+                name: "Anthony Stafford",
+                gender: "male",
+                posts: [
+                  {
+                    header: "post1",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post2",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                  {
+                    header: "post3",
+                    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, non aliquam facere explicabo eius quisquam exercitationem minus itaque quia sit.",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
     ],
   },

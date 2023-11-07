@@ -1,8 +1,16 @@
 <template>
-  <div>
-    <ul>
+  <div class="uniq-friends">
+    <div class="input-block">
+      <h3>Find Friend:</h3>
+      <input
+        v-model="searchFriend"
+        type="text"
+        class="source-input"
+        placeholder="Friend Name..." />
+    </div>
+    <ul class="friends-list">
       <li
-        v-for="friend in sortedFriends"
+        v-for="friend in sortedAndFilteredFriends"
         :key="friend.id"
         :style="friendPanelStyle(friend)"
         class="friend-panel"
@@ -12,23 +20,43 @@
             params: { id: Number(friend.id) },
           })
         ">
-        <img :src="friend.photo" alt="Фото друга" />
+        <img class="friend-img" :src="friend.picture" alt="Фото друга" />
         <h3>{{ friend.name }}</h3>
-        <p>Пол: {{ friend.gender }}</p>
-        <p>Возраст: {{ friend.age }}</p>
-        <p>Количество друзей: {{ friend.friends.length }}</p>
+        <p>
+          Gender: <span class="friend-info">{{ friend.gender }}</span>
+        </p>
+        <p>
+          Age: <span class="friend-info">{{ friend.age }}</span>
+        </p>
+        <p>
+          Friends number:
+          <span class="friend-info">{{ friend.friends.length }}</span>
+        </p>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import { intersection } from "@/utils/array";
-
 export default {
+  data() {
+    return {
+      searchFriend: "",
+    };
+  },
   computed: {
     sortedFriends() {
       return this.$store.getters.sortedFriends;
+    },
+    users() {
+      return this.$store.state.users;
+    },
+    sortedAndFilteredFriends() {
+      return this.sortedFriends.filter((friend) =>
+        friend.name
+          .toLowerCase()
+          .includes(this.searchFriend.toLocaleLowerCase())
+      );
     },
   },
   created() {
@@ -36,36 +64,59 @@ export default {
   },
   methods: {
     friendPanelStyle(friend) {
-      const commonFriendsCount = this.calculateCommonFriends(
-        friend,
-        this.$store.state.users
-      );
-      // console.log(commonFriendsCount);
-      const brightness = commonFriendsCount / this.$store.state.users.length;
+      const hasInFriends = this.inFriends(friend, this.users);
+
+      const brightness = hasInFriends / this.users.length;
+
       const background = `rgba(123, 12, 12, ${brightness})`;
       return { background };
     },
-    calculateCommonFriends(friend, users) {
-      let commonFriends = 0;
-
-      users.forEach((user) => {
-        if (user.id !== friend.id) {
-          let friendSecond = [];
-          if (friend.friends && Array.isArray(friend.friends)) {
-            friendSecond = friend.friends.filter((f) => f.id !== user.id);
-          }
-          console.log(friendSecond);
-          commonFriends = intersection(user.friends, friendSecond);
-        }
-      });
-      console.log(commonFriends);
-      return commonFriends;
+    inFriends(friend, users) {
+      let addedInFriends = users.filter((fr) =>
+        fr.friends.some((f) => f.id == friend.id)
+      );
+      return addedInFriends.length;
     },
   },
 };
 </script>
 
 <style scoped>
+.uniq-friends {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-block {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.source-input {
+  width: 150px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.friends-list {
+  padding: 0;
+  max-width: 970px;
+}
+
+.friend-img {
+  width: 130px;
+  height: 100px;
+}
+
+.friend-info {
+  font-weight: 600;
+  font-size: 18px;
+}
+
 .friend-panel {
   border: 1px solid #ccc;
   padding: 10px;
